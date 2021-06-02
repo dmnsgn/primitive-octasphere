@@ -44,7 +44,77 @@ console.log(geometry);
 
 <!-- api-start -->
 
-Auto-generated API content.
+## Functions
+
+<dl>
+<dt><a href="#createOctasphere">createOctasphere([options])</a> ⇒ <code><a href="#SimplicialComplex">SimplicialComplex</a></code></dt>
+<dd><p>An octasphere geometry for 3D rendering, including normals, UVs and cell indices (faces).</p>
+</dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#vec2">vec2</a> : <code>Array.&lt;number&gt;</code></dt>
+<dd></dd>
+<dt><a href="#vec3">vec3</a> : <code>Array.&lt;number&gt;</code></dt>
+<dd></dd>
+<dt><a href="#OctasphereOptions">OctasphereOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#SimplicialComplex">SimplicialComplex</a> : <code>Object</code></dt>
+<dd><p>Geometry definition.</p>
+</dd>
+</dl>
+
+<a name="createOctasphere"></a>
+
+## createOctasphere([options]) ⇒ [<code>SimplicialComplex</code>](#SimplicialComplex)
+
+An octasphere geometry for 3D rendering, including normals, UVs and cell indices (faces).
+
+**Kind**: global function
+
+| Param     | Type                                                 | Default         |
+| --------- | ---------------------------------------------------- | --------------- |
+| [options] | [<code>OctasphereOptions</code>](#OctasphereOptions) | <code>{}</code> |
+
+<a name="vec2"></a>
+
+## vec2 : <code>Array.&lt;number&gt;</code>
+
+**Kind**: global typedef  
+<a name="vec3"></a>
+
+## vec3 : <code>Array.&lt;number&gt;</code>
+
+**Kind**: global typedef  
+<a name="OctasphereOptions"></a>
+
+## OctasphereOptions : <code>Object</code>
+
+**Kind**: global typedef  
+**Properties**
+
+| Name           | Type                | Default          |
+| -------------- | ------------------- | ---------------- |
+| [radius]       | <code>number</code> | <code>0.5</code> |
+| [subdivisions] | <code>number</code> | <code>2</code>   |
+
+<a name="SimplicialComplex"></a>
+
+## SimplicialComplex : <code>Object</code>
+
+Geometry definition.
+
+**Kind**: global typedef  
+**Properties**
+
+| Name      | Type                                     |
+| --------- | ---------------------------------------- |
+| positions | [<code>Array.&lt;vec3&gt;</code>](#vec3) |
+| normals   | [<code>Array.&lt;vec3&gt;</code>](#vec3) |
+| uvs       | [<code>Array.&lt;vec2&gt;</code>](#vec2) |
+| cells     | [<code>Array.&lt;vec3&gt;</code>](#vec3) |
 
 <!-- api-end -->
 
