@@ -1,0 +1,51 @@
+{
+  "name": "primitive-octasphere",
+  "version": "1.0.0",
+  "description": "An octasphere geometry for 3D rendering, including normals, UVs and cell indices (faces).",
+  "keywords": [
+    "octasphere",
+    "simplicial",
+    "complex",
+    "mesh",
+    "geom",
+    "geometry",
+    "primitive",
+    "stackgl",
+    "glsl",
+    "webgl",
+    "gl"
+  ],
+  "homepage": "https://github.com/dmnsgn/primitive-octasphere",
+  "bugs": "https://github.com/dmnsgn/primitive-octasphere/issues",
+  "repository": "dmnsgn/primitive-octasphere",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
+  "sideEffects": true,
+  "type": "module",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "async-preloader": "^5.0.2",
+    "cameras": "^3.0.2",
+    "core-js": "^3.11.2",
+    "dat.gui": "^0.7.7",
+    "es-module-shims": "^0.10.4",
+    "gl-matrix": "^3.3.0",
+    "pex-context": "^2.10.4"
+  }
+}
