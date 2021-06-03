@@ -1,6 +1,6 @@
 {
   "name": "primitive-octasphere",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An octasphere geometry for 3D rendering, including normals, UVs and cell indices (faces).",
   "keywords": [
     "octasphere",
@@ -34,6 +34,9 @@
   "type": "module",
   "main": "index.js",
   "types": "types/index.d.ts",
+  "dependencies": {
+    "gl-matrix": "^3.3.0"
+  },
   "devDependencies": {
     "assert": "^2.0.0",
     "async-preloader": "^5.0.2",
@@ -46,8 +49,5 @@
   "engines": {
     "node": ">=15.0.0",
     "npm": ">=7.0.0"
-  },
-  "dependencies": {
-    "gl-matrix": "^3.3.0"
   }
 }
