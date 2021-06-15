@@ -42,9 +42,9 @@
     "async-preloader": "^5.0.2",
     "cameras": "^3.0.2",
     "core-js": "^3.11.2",
-    "dat.gui": "^0.7.7",
     "es-module-shims": "^0.10.4",
-    "pex-context": "^2.10.4"
+    "pex-context": "^2.10.4",
+    "tweakpane": "^3.0.2"
   },
   "engines": {
     "node": ">=15.0.0",

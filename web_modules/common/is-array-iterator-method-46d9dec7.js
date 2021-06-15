@@ -1,5 +1,9 @@
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
 function createCommonjsModule(fn, basedir, module) {
 	return module = {
 		path: basedir,
@@ -553,6 +557,35 @@ var _export = function (options, source) {
   }
 };
 
+var aFunction$1 = function (it) {
+  if (typeof it != 'function') {
+    throw TypeError(String(it) + ' is not a function');
+  } return it;
+};
+
+// optional / simple context binding
+var functionBindContext = function (fn, that, length) {
+  aFunction$1(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 0: return function () {
+      return fn.call(that);
+    };
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
 var engineIsNode = classofRaw(global_1.process) == 'process';
 
 var engineUserAgent = getBuiltIn('navigator', 'userAgent') || '';
@@ -605,4 +638,52 @@ var wellKnownSymbol = function (name) {
   } return WellKnownSymbolsStore[name];
 };
 
-export { createPropertyDescriptor as A, global_1 as B, uid as C, toAbsoluteIndex as D, objectGetOwnPropertyNames as E, internalState as F, toPrimitive as G, objectGetOwnPropertyDescriptor as H, objectGetOwnPropertySymbols as I, objectPropertyIsEnumerable as J, toIndexedObject as K, path as L, nativeSymbol as M, useSymbolAsUid as N, copyConstructorProperties as O, arrayIncludes as P, isForced_1 as Q, ownKeys as R, engineUserAgent as S, inspectSource as T, nativeWeakMap as U, sharedStore as V, _export as _, commonjsGlobal as a, anObject as b, createCommonjsModule as c, classofRaw as d, toObject as e, fails as f, getBuiltIn as g, has as h, isObject as i, objectKeysInternal as j, enumBugKeys as k, descriptors as l, hiddenKeys as m, documentCreateElement as n, objectDefineProperty as o, shared as p, createNonEnumerableProperty as q, redefine as r, sharedKey as s, toLength as t, requireObjectCoercible as u, toInteger as v, wellKnownSymbol as w, indexedObject as x, engineIsNode as y, engineV8Version as z };
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+var test = {};
+
+test[TO_STRING_TAG] = 'z';
+
+var toStringTagSupport = String(test) === '[object z]';
+
+var TO_STRING_TAG$1 = wellKnownSymbol('toStringTag');
+// ES3 wrong here
+var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (error) { /* empty */ }
+};
+
+// getting tag from ES6+ `Object.prototype.toString`
+var classof = toStringTagSupport ? classofRaw : function (it) {
+  var O, tag, result;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG$1)) == 'string' ? tag
+    // builtinTag case
+    : CORRECT_ARGUMENTS ? classofRaw(O)
+    // ES3 arguments fallback
+    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+};
+
+var iterators = {};
+
+var ITERATOR = wellKnownSymbol('iterator');
+
+var getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || iterators[classof(it)];
+};
+
+var ITERATOR$1 = wellKnownSymbol('iterator');
+var ArrayPrototype = Array.prototype;
+
+// check on default Array iterator
+var isArrayIteratorMethod = function (it) {
+  return it !== undefined && (iterators.Array === it || ArrayPrototype[ITERATOR$1] === it);
+};
+
+export { inspectSource as $, has as A, isObject as B, objectDefineProperty as C, toAbsoluteIndex as D, objectGetOwnPropertyNames as E, internalState as F, toPrimitive as G, objectGetOwnPropertyDescriptor as H, sharedKey as I, objectKeysInternal as J, enumBugKeys as K, hiddenKeys as L, documentCreateElement as M, iterators as N, objectGetOwnPropertySymbols as O, objectPropertyIsEnumerable as P, toIndexedObject as Q, path as R, nativeSymbol as S, useSymbolAsUid as T, copyConstructorProperties as U, arrayIncludes as V, isForced_1 as W, ownKeys as X, toStringTagSupport as Y, engineUserAgent as Z, _export as _, commonjsGlobal as a, nativeWeakMap as a0, sharedStore as a1, getDefaultExportFromCjs as a2, anObject as b, createCommonjsModule as c, aFunction$1 as d, getBuiltIn as e, functionBindContext as f, getIteratorMethod as g, fails as h, isArrayIteratorMethod as i, createNonEnumerableProperty as j, toObject as k, classofRaw as l, requireObjectCoercible as m, toInteger as n, indexedObject as o, engineIsNode as p, engineV8Version as q, redefine as r, shared as s, toLength as t, createPropertyDescriptor as u, global_1 as v, wellKnownSymbol as w, uid as x, classof as y, descriptors as z };

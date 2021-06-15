@@ -48,19 +48,22 @@
       import AsyncPreloader from "async-preloader";
       import createContext from "pex-context";
       import { PerspectiveCamera, Controls } from "cameras";
-      import dat from "dat.gui";
+      import { Pane } from "tweakpane";
 
-      const gui = new dat.GUI();
       const modeOptions = ["texture", "normal", "flat-shaded", "uv"];
-      const options = {
+      const CONFIG = {
         mode: "texture",
       };
-      gui.add(options, "mode", modeOptions);
+      const pane = new Pane();
+      pane.addInput(CONFIG, "mode", {
+        options: modeOptions.map((value) => ({
+          text: value.toUpperCase(),
+          value,
+        })),
+      });
 
       // Geometry
       const geometry = createOctasphere();
-
-      console.log("geometry", geometry);
 
       // Render
       const canvas = document.createElement("canvas");
@@ -247,7 +250,7 @@ void main() {
 
           ctx.submit(drawCmd, {
             uniforms: {
-              uMode: modeOptions.findIndex((o) => o === options.mode),
+              uMode: modeOptions.findIndex((o) => o === CONFIG.mode),
             },
           });
         });

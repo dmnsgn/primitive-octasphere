@@ -1,81 +1,4 @@
-import { w as wellKnownSymbol, d as classofRaw, f as fails, s as sharedKey, e as toObject, h as has, i as isObject, b as anObject, r as redefine, o as objectDefineProperty, j as objectKeysInternal, k as enumBugKeys, l as descriptors, g as getBuiltIn, m as hiddenKeys, n as documentCreateElement } from './well-known-symbol-e7c5f5fe.js';
-
-var aFunction = function (it) {
-  if (typeof it != 'function') {
-    throw TypeError(String(it) + ' is not a function');
-  } return it;
-};
-
-// optional / simple context binding
-var functionBindContext = function (fn, that, length) {
-  aFunction(fn);
-  if (that === undefined) return fn;
-  switch (length) {
-    case 0: return function () {
-      return fn.call(that);
-    };
-    case 1: return function (a) {
-      return fn.call(that, a);
-    };
-    case 2: return function (a, b) {
-      return fn.call(that, a, b);
-    };
-    case 3: return function (a, b, c) {
-      return fn.call(that, a, b, c);
-    };
-  }
-  return function (/* ...args */) {
-    return fn.apply(that, arguments);
-  };
-};
-
-var TO_STRING_TAG = wellKnownSymbol('toStringTag');
-var test = {};
-
-test[TO_STRING_TAG] = 'z';
-
-var toStringTagSupport = String(test) === '[object z]';
-
-var TO_STRING_TAG$1 = wellKnownSymbol('toStringTag');
-// ES3 wrong here
-var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
-
-// fallback for IE11 Script Access Denied error
-var tryGet = function (it, key) {
-  try {
-    return it[key];
-  } catch (error) { /* empty */ }
-};
-
-// getting tag from ES6+ `Object.prototype.toString`
-var classof = toStringTagSupport ? classofRaw : function (it) {
-  var O, tag, result;
-  return it === undefined ? 'Undefined' : it === null ? 'Null'
-    // @@toStringTag case
-    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG$1)) == 'string' ? tag
-    // builtinTag case
-    : CORRECT_ARGUMENTS ? classofRaw(O)
-    // ES3 arguments fallback
-    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
-};
-
-var iterators = {};
-
-var ITERATOR = wellKnownSymbol('iterator');
-
-var getIteratorMethod = function (it) {
-  if (it != undefined) return it[ITERATOR]
-    || it['@@iterator']
-    || iterators[classof(it)];
-};
-
-var ITERATOR$1 = wellKnownSymbol('iterator');
-var ArrayPrototype = Array.prototype;
-
-// check on default Array iterator
-var isArrayIteratorMethod = function (it) {
-  return it !== undefined && (iterators.Array === it || ArrayPrototype[ITERATOR$1] === it);
-};
+import { h as fails, I as sharedKey, k as toObject, A as has, B as isObject, b as anObject, r as redefine, w as wellKnownSymbol, C as objectDefineProperty, J as objectKeysInternal, K as enumBugKeys, z as descriptors, e as getBuiltIn, L as hiddenKeys, M as documentCreateElement } from './is-array-iterator-method-46d9dec7.js';
 
 var correctPrototypeGetter = !fails(function () {
   function F() { /* empty */ }
@@ -146,11 +69,11 @@ var defineProperty = objectDefineProperty.f;
 
 
 
-var TO_STRING_TAG$2 = wellKnownSymbol('toStringTag');
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 
 var setToStringTag = function (it, TAG, STATIC) {
-  if (it && !has(it = STATIC ? it : it.prototype, TO_STRING_TAG$2)) {
-    defineProperty(it, TO_STRING_TAG$2, { configurable: true, value: TAG });
+  if (it && !has(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
+    defineProperty(it, TO_STRING_TAG, { configurable: true, value: TAG });
   }
 };
 
@@ -247,4 +170,4 @@ var objectCreate = Object.create || function create(O, Properties) {
   return Properties === undefined ? result : objectDefineProperties(result, Properties);
 };
 
-export { aFunction as a, objectSetPrototypeOf as b, objectGetPrototypeOf as c, classof as d, anInstance as e, functionBindContext as f, getIteratorMethod as g, iterators as h, isArrayIteratorMethod as i, objectKeys as j, objectDefineProperties as k, correctPrototypeGetter as l, html as m, aPossiblePrototype as n, objectCreate as o, redefineAll as r, setToStringTag as s, toStringTagSupport as t };
+export { objectSetPrototypeOf as a, objectGetPrototypeOf as b, anInstance as c, objectKeys as d, objectDefineProperties as e, correctPrototypeGetter as f, aPossiblePrototype as g, html as h, objectCreate as o, redefineAll as r, setToStringTag as s };
