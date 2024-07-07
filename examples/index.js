@@ -40,7 +40,7 @@ const uvMap = ctx.texture2D({
   encoding: ctx.Encoding.SRGB,
   flipY: true,
   data: await AsyncPreloader.loadImage({
-    src: "examples/uv.jpg",
+    src: new URL("./uv.jpg", import.meta.url),
   }),
 });
 
