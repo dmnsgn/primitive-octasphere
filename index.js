@@ -29,13 +29,13 @@ const HALF_PI = Math.PI * 0.5;
  */
 
 /**
- * @typedef {Object} OctasphereOptions
+ * @typedef {object} OctasphereOptions
  * @property {number} [radius=0.5]
  * @property {number} [subdivisions=2]
  */
 
 /**
- * @typedef {Object} SimplicialComplex Geometry definition.
+ * @typedef {object} SimplicialComplex Geometry definition.
  * @property {vec3[]} positions
  * @property {vec3[]} normals
  * @property {vec2[]} uvs
@@ -75,8 +75,8 @@ function createOctasphere({ radius = 0.5, subdivisions = 2 } = {}) {
         : computeGeodesic(
             [0, sinTheta, cosTheta],
             [cosTheta, sinTheta, 0],
-            col
-          ))
+            col,
+          )),
     );
 
     if (i < n - 1) {
@@ -108,7 +108,7 @@ function createOctasphere({ radius = 0.5, subdivisions = 2 } = {}) {
   ]
     .map((euler) => vec3.scale(euler, euler, HALF_PI))
     .map((angles) =>
-      quat.fromEuler(quat.create(), ...angles.map((n) => (n * 180) / Math.PI))
+      quat.fromEuler(quat.create(), ...angles.map((n) => (n * 180) / Math.PI)),
     );
 
   for (let i = 0; i < pathchesQuats.length; i++) {
