@@ -1,6 +1,6 @@
 {
   "name": "primitive-octasphere",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An octasphere geometry for 3D rendering, including normals, UVs and cell indices (faces).",
   "keywords": [
     "octasphere",
@@ -17,7 +17,10 @@
   ],
   "homepage": "https://github.com/dmnsgn/primitive-octasphere",
   "bugs": "https://github.com/dmnsgn/primitive-octasphere/issues",
-  "repository": "dmnsgn/primitive-octasphere",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnsgn/primitive-octasphere.git"
+  },
   "funding": [
     {
       "type": "individual",

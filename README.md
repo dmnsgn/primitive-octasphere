@@ -59,9 +59,9 @@ console.log(geometry);
 <dd></dd>
 <dt><a href="#vec3">vec3</a> : <code>Array.&lt;number&gt;</code></dt>
 <dd></dd>
-<dt><a href="#OctasphereOptions">OctasphereOptions</a> : <code>Object</code></dt>
+<dt><a href="#OctasphereOptions">OctasphereOptions</a> : <code>object</code></dt>
 <dd></dd>
-<dt><a href="#SimplicialComplex">SimplicialComplex</a> : <code>Object</code></dt>
+<dt><a href="#SimplicialComplex">SimplicialComplex</a> : <code>object</code></dt>
 <dd><p>Geometry definition.</p>
 </dd>
 </dl>
@@ -82,17 +82,17 @@ An octasphere geometry for 3D rendering, including normals, UVs and cell indices
 
 ## vec2 : <code>Array.&lt;number&gt;</code>
 
-**Kind**: global typedef  
+**Kind**: global typedef
 <a name="vec3"></a>
 
 ## vec3 : <code>Array.&lt;number&gt;</code>
 
-**Kind**: global typedef  
+**Kind**: global typedef
 <a name="OctasphereOptions"></a>
 
-## OctasphereOptions : <code>Object</code>
+## OctasphereOptions : <code>object</code>
 
-**Kind**: global typedef  
+**Kind**: global typedef
 **Properties**
 
 | Name           | Type                | Default          |
@@ -102,11 +102,11 @@ An octasphere geometry for 3D rendering, including normals, UVs and cell indices
 
 <a name="SimplicialComplex"></a>
 
-## SimplicialComplex : <code>Object</code>
+## SimplicialComplex : <code>object</code>
 
 Geometry definition.
 
-**Kind**: global typedef  
+**Kind**: global typedef
 **Properties**
 
 | Name      | Type                                     |
